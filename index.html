@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квітковий сад | Свіжі квіти та фотографії</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <a class="visually-hidden-focusable skip-link" href="#products">Перейти до продукції</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3">
+        <div class="container">
+            <div class="navbar-pill bg-success d-flex align-items-center w-100 px-3">
+            <a class="navbar-brand fw-bold" href="#home">🌸 Квітковий сад</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Перемикач навігації">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Продукція</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Зв'язатися з нами</a></li>
+                </ul>
+                <div class="search-wrap my-2 my-lg-0 me-lg-3">
+                    <input type="search" id="searchInput" class="form-control" placeholder="🔍 Знайти квітку..." aria-label="Пошук квітки">
+                </div>
+                <button id="cartBtn" class="btn btn-outline-light position-relative d-flex align-items-center" type="button">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="me-1"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 002 1.6h9.7a2 2 0 002-1.6L23 6H6"/></svg>
+                    Кошик
+                    <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" aria-hidden="true">0</span>
+                    <span id="cartStatus" class="visually-hidden" aria-live="polite"></span>
+                </button>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="container py-5 mt-2">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+                <h1 class="display-5 fw-bold mb-3">Свіжі квіти та ексклюзивні фотографії</h1>
+                <p class="lead text-muted mb-4">Відкрийте колекцію найкращих квітів для ваших близьких та унікальні світлини, що зберігають красу природи назавжди.</p>
+                <a href="#products" class="btn btn-primary btn-lg px-4">Переглянути каталог</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="Photos/hero-bouquet.jpg" alt="Букет квітів" class="img-fluid rounded-16 shadow-sm hero-img" loading="lazy" decoding="async" width="500" height="333">
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container py-5">
+        <h2 class="text-center mb-5 fw-bold">Наша продукція</h2>
+        <p class="text-center text-muted mb-4">Оберіть ідеальну квітку для будь-якої нагоди</p>
+
+        <input type="radio" name="filter" id="f-all" class="filter-input" checked><input type="radio" name="filter" id="f-roses" class="filter-input"><input type="radio" name="filter" id="f-field" class="filter-input"><input type="radio" name="filter" id="f-exotic" class="filter-input"><input type="radio" name="filter" id="f-spring" class="filter-input">
+
+        <div class="filter-bar text-center mb-3" role="tablist" aria-label="Фільтр за категорією">
+            <label for="f-all"    class="filter-pill" role="tab">🌸 Усі</label>
+            <label for="f-roses"  class="filter-pill" role="tab">🌹 Троянди</label>
+            <label for="f-field"  class="filter-pill" role="tab">🌼 Польові</label>
+            <label for="f-exotic" class="filter-pill" role="tab">🌺 Екзотичні</label>
+            <label for="f-spring" class="filter-pill" role="tab">🌷 Весняні</label>
+        </div>
+
+        <div class="row g-4" id="productsGrid">
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="roses" data-name="Червона троянда">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/redrose.jpg" class="card-img-top" alt="Червона троянда" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Червона троянда</h5>
+                        <p class="text-muted small mb-auto">Свіжа квітка з доставкою</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">45 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="1">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="roses" data-name="Біла троянда">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/whiterose.jpg" class="card-img-top" alt="Біла троянда" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Біла троянда</h5>
+                        <p class="text-muted small mb-auto">Елегантна та вишукана</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">45 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="2">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="all" data-name="Півонія">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/peony.jpg" class="card-img-top" alt="Півонія" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Півонія</h5>
+                        <p class="text-muted small mb-auto">Ніжний аромат літа</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">85 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="3">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="spring" data-name="Тюльпан">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/tulip.jpg" class="card-img-top" alt="Тюльпан" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Тюльпан</h5>
+                        <p class="text-muted small mb-auto">Класика весняного настрою</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">35 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="4">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="all" data-name="Соняшник">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/sunflower.jpg" class="card-img-top" alt="Соняшник" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Соняшник</h5>
+                        <p class="text-muted small mb-auto">Шматочок сонця в букеті</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">30 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="5">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="exotic" data-name="Орхідея">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/orchid.jpg" class="card-img-top" alt="Орхідея" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Орхідея</h5>
+                        <p class="text-muted small mb-auto">Екзотична розкіш</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">120 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="6">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="all" data-name="Лілія">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/lily.jpg" class="card-img-top" alt="Лілія" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Лілія</h5>
+                        <p class="text-muted small mb-auto">Вишуканий аромат</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">70 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="7">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="field" data-name="Ромашка">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/chamomile.jpg" class="card-img-top" alt="Ромашка" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Ромашка</h5>
+                        <p class="text-muted small mb-auto">Польова простота</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">20 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="8">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="all" data-name="Ірис">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/iris.jpg" class="card-img-top" alt="Ірис" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Ірис</h5>
+                        <p class="text-muted small mb-auto">Ніжна елегантність</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">55 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="9">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="exotic" data-name="Хризантема">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/chrysanthemum.jpg" class="card-img-top" alt="Хризантема" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Хризантема</h5>
+                        <p class="text-muted small mb-auto">Осіння свіжість</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">40 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="10">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="all" data-name="Лаванда">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/lavender.jpg" class="card-img-top" alt="Лаванда" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Лаванда</h5>
+                        <p class="text-muted small mb-auto">Аромат провансу</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">50 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="11">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="field" data-name="Мак">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/mak.jpg" class="card-img-top" alt="Мак" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Мак</h5>
+                        <p class="text-muted small mb-auto">Яскравий акцент</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">25 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="12">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="all" data-name="Фрезія">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/freesia.jpg" class="card-img-top" alt="Фрезія" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Фрезія</h5>
+                        <p class="text-muted small mb-auto">Тонкий аромат</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">65 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="13">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="all" data-name="Гвоздика">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/carnation.jpg" class="card-img-top" alt="Гвоздика" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Гвоздика</h5>
+                        <p class="text-muted small mb-auto">Святкова класика</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">30 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="14">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3" data-category="spring" data-name="Бузок">
+                <div class="card product-card h-100 shadow-sm border-0">
+                    <img src="Photos/lilac.jpg" class="card-img-top" alt="Бузок" loading="lazy" decoding="async" width="500" height="500" onerror="this.src='https://via.placeholder.com/500x500?text=🌸'">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Бузок</h5>
+                        <p class="text-muted small mb-auto">Весняний аромат</p>
+                        <p class="card-text text-success fs-4 fw-bold mt-3 mb-0">60 ₴</p>
+                        <button class="btn btn-primary w-100 mt-3 add-to-cart" data-id="15">Додати в кошик</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="noResults" class="d-none" role="status">
+            <div class="text-center py-5">
+                <div class="no-results-icon mb-3">🔍</div>
+                <h3 class="fw-bold">Нічого не знайдено</h3>
+                <p class="text-muted mb-0">Спробуйте змінити запит або перейти до іншої категорії.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="text-white py-4 mt-auto">
+        <div class="container text-center text-md-start">
+            <div class="footer-pill bg-dark rounded-4 shadow-sm p-4 row align-items-center">
+                <div class="col-md-6">
+                    <h5 class="mb-2">Зв'язатися з нами</h5>
+                    <p class="mb-1">📧 Email: <a href="mailto:info@flower-shop.ua" class="text-white text-decoration-underline">info@flower-shop.ua</a></p>
+                    <p class="mb-0">🐙 GitHub: <a href="https://github.com/vhworkgb-max" target="_blank" rel="noopener" class="text-white text-decoration-underline">Volodymyr / vhworkgb-max</a></p>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <small class="text-white-50">© 2026 Квітковий сад. Усі права захищені.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальне вікно кошика -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">🛒 Ваш кошик</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити кошик"></button>
+                </div>
+                <div class="modal-body" id="cartBody">
+                    <p class="text-muted text-center mb-0">Кошик порожній.</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div class="fw-bold fs-5">Разом: <span id="cartSum" class="text-success">0 ₴</span></div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+                        <button type="button" class="btn btn-primary" id="checkoutBtn">Оформити</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+/* === Тло та загальні заокруглення === */
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: #FAF7F2;
+}
+
+/* === Skip-link (a11y) === */
+.skip-link {
+    position: absolute; top: -100px; left: 0; z-index: 9999;
+    background: #2E7D32; color: #fff; padding: 0.5rem 1rem; border-radius: 0 0 8px 0;
+}
+.skip-link:focus { top: 0; }
+
+/* === Хедер у вигляді "пігулки" (не на всю ширину) === */
+.navbar-pill {
+    border-radius: 50px;
+    padding: 0.5rem 1.25rem;
+    min-height: 56px;
+}
+
+/* Кастомний клас заокруглення (не перезаписує Bootstrap-утиліту .rounded) */
+.rounded-16 { border-radius: 16px !important; }
+
+.card,
+.product-card {
+    border-radius: 18px !important;
+    overflow: hidden;
+}
+.card-img-top { border-top-left-radius: 18px !important; border-top-right-radius: 18px !important; }
+
+/* === Кнопки === */
+.btn {
+    border-radius: 12px;
+    font-weight: 500;
+    transition: transform 0.15s ease, background-color 0.2s ease;
+}
+.btn-primary,
+.btn-success {
+    background-color: #2E7D32;
+    border-color: #2E7D32;
+}
+.btn-primary:hover, .btn-primary:focus,
+.btn-success:hover, .btn-success:focus {
+    background-color: #1B5E20;
+    border-color: #1B5E20;
+}
+.btn-outline-light {
+    border-radius: 12px;
+}
+
+/* === Ховер-ефекти карток === */
+.product-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    height: 100%;
+}
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0.75rem 1.5rem rgba(46, 125, 50, 0.18) !important;
+}
+.product-card img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* === Кнопка "Додати в кошик" === */
+.add-to-cart { transition: background-color 0.2s ease; min-height: 44px; }
+.add-to-cart:active { transform: scale(0.97); }
+
+/* === Hero-фото === */
+.hero-img {
+    min-height: 200px;
+    object-fit: cover;
+    max-height: 380px;
+    width: 100%;
+}
+
+/* === Модалка — більші кнопки qty === */
+.cart-row .btn-group .btn { min-width: 36px; min-height: 36px; }
+
+/* === Badge та анімація кошика === */
+#cartCount { min-width: 1.6rem; font-size: 0.75rem; }
+.cart-bump { animation: bump 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes bump {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.18); }
+    100% { transform: scale(1); }
+}
+
+/* === Адаптив === */
+@media (max-width: 575.98px) {
+    .product-card img { height: 180px; }
+    h1.display-5 { font-size: 1.85rem; }
+}
+
+/* === Фільтр продукції (працює без JS, на радіокнопках) === */
+.filter-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0; height: 0;
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.filter-pill {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    background: #fff;
+    color: #2E7D32;
+    border: 2px solid #2E7D32;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.filter-pill:hover {
+    background: #E8F5E9;
+}
+.filter-pill:active { transform: scale(0.97); }
+
+/* За замовчуванням ховаємо всі колонки */
+#productsGrid > [data-category] { display: none; }
+
+/* Коли вибрано "Усі" — показати все */
+#f-all:checked ~ #productsGrid > [data-category] { display: block; }
+
+/* Коли вибрано конкретну категорію — показати тільки її */
+#f-roses:checked  ~ #productsGrid > [data-category="roses"]  { display: block; }
+#f-field:checked  ~ #productsGrid > [data-category="field"]  { display: block; }
+#f-exotic:checked ~ #productsGrid > [data-category="exotic"] { display: block; }
+#f-spring:checked ~ #productsGrid > [data-category="spring"] { display: block; }
+
+/* Підсвітка активної пігулки */
+#f-all:checked    ~ .filter-bar .filter-pill[for="f-all"],
+#f-roses:checked  ~ .filter-bar .filter-pill[for="f-roses"],
+#f-field:checked  ~ .filter-bar .filter-pill[for="f-field"],
+#f-exotic:checked ~ .filter-bar .filter-pill[for="f-exotic"],
+#f-spring:checked ~ .filter-bar .filter-pill[for="f-spring"] {
+    background: #2E7D32;
+    color: #fff;
+}
+
+/* === Поле пошуку в навбарі === */
+.search-wrap { min-width: 190px; }
+.search-wrap .form-control {
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    color: #fff;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-wrap .form-control::placeholder { color: rgba(255, 255, 255, 0.78); }
+.search-wrap .form-control:focus {
+    background: #fff;
+    color: #212529;
+    border-color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+.search-wrap .form-control:focus::placeholder { color: #adb5bd; }
+
+/* === Заглушка «Нічого не знайдено» === */
+#noResults {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.no-results-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px dashed #2E7D32;
+    color: #2E7D32;
+    font-size: 1.6rem;
+}
+#noResults h3 { color: #2E7D32; }
+#noResults p { font-size: 1rem; }
+
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+    .product-card:hover { transform: none; }
+}
