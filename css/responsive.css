@@ -1,0 +1,15 @@
+/* === Адаптив === */
+@media (max-width: 575.98px) {
+    .product-card img { height: 180px; }
+    h1.display-5 { font-size: 1.85rem; }
+}
+
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+    .product-card:hover { transform: none; }
+}
